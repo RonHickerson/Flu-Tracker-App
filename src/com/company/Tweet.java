@@ -1,6 +1,7 @@
 package com.company;
 
 import java.time.LocalDate;
+import java.util.Objects;
 import java.util.Random;
 
 public class Tweet {
@@ -50,12 +51,29 @@ public class Tweet {
         return "ID: " + userId + "\nState: " + state + "\nDate: " + date + "\n";
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Tweet tweet = (Tweet) o;
+        return userId == tweet.userId &&
+                Objects.equals(state, tweet.state) &&
+                Objects.equals(date, tweet.date);
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(userId, state, date);
+    }
+
     private static String randomState() {
         Random rand = new Random();
         String[] states  = {"AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "FL", "GA", "HA", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC", "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WC", "WY"};
         int randNum = rand.nextInt(50);
         return states[randNum];
     }
+
 
     private static int generateRandomInteger(int min, int max) {
         Random rand = new Random();

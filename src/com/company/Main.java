@@ -4,6 +4,15 @@ public class Main {
 
     public static void main(String[] args) {
         System.out.println("Hello, Flu Tracker");
+        System.out.println();
+        System.out.println();
+
+        // Create and Print Tweet files
+        LList tweetList = new LList(10);
+        output1Node("Tweets", tweetList);
+
+        //
+
     }
 
     public static void output1Node(String s, LList n) {
