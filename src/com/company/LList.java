@@ -1,5 +1,8 @@
 package com.company;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class LList {
     private Tweet tweet;
     private LList next;
@@ -72,16 +75,17 @@ public class LList {
             return 1 + size(head.next);
     }
     
-    public void tweetsFromEachState() {
+    public Map<String, Integer> tweetsFromEachState() {
+        Map<String, Integer> counts = new HashMap<>();
         int count = 0;
         LList temp = this;
         while (temp != null) {
-            if (temp.tweet.getState().equals()) {
+            if (temp.getTweet().getState().equals(counts.) ) {
                 count++;
             }
-            temp = temp.next;
+            counts.put(temp.getTweet().getState(), count);
         }
-
+    return counts;
     }
 
     @Override

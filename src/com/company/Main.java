@@ -11,8 +11,9 @@ public class Main {
         LList tweetList = new LList(10);
         output1Node("Tweets", tweetList);
 
-        //
+        // How many flu tweets from each state in the file?
 
+        System.out.println("Tweets from each state: " + tweetList.tweetsFromEachState());
     }
 
     public static void output1Node(String s, LList n) {
