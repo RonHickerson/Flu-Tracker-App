@@ -1,7 +1,6 @@
 package com.company;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class LList {
     private Tweet tweet;
@@ -75,17 +74,32 @@ public class LList {
             return 1 + size(head.next);
     }
     
-    public Map<String, Integer> tweetsFromEachState() {
-        Map<String, Integer> counts = new HashMap<>();
-        int count = 0;
+//    public Map<String, Integer> tweetsFromEachState() {
+//        Map<String, Integer> counts = new HashMap<>();
+//        int count = 0;
+//        LList temp = this;
+//        while (temp != null) {
+//            if (temp.getTweet().getState().equals(counts.) ) {
+//                count++;
+//            }
+//            counts.put(temp.getTweet().getState(), count);
+//        }
+//    return counts;
+//    }
+
+    public boolean moreThanOneTweet() {
         LList temp = this;
-        while (temp != null) {
-            if (temp.getTweet().getState().equals(counts.) ) {
-                count++;
-            }
-            counts.put(temp.getTweet().getState(), count);
+        ArrayList<Integer> ids = new ArrayList<>();
+        while (temp.next != null) {
+            ids.add(temp.tweet.getUserId());
+            temp = temp.next;
         }
-    return counts;
+        Set<Integer> duplicates = new HashSet<>();
+        for (int nums : ids) {
+            if (!duplicates.add(nums))
+                return true;
+        }
+        return false;
     }
 
     @Override

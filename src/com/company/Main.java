@@ -8,12 +8,20 @@ public class Main {
         System.out.println();
 
         // Create and Print Tweet files
-        LList tweetList = new LList(10);
-        output1Node("Tweets", tweetList);
+        LList tweetList1 = new LList(10);
+        LList tweetList2 = new LList(2);
+        output2Nodes("Tweets", tweetList1, "More Tweets", tweetList2);
+
 
         // How many flu tweets from each state in the file?
 
-        System.out.println("Tweets from each state: " + tweetList.tweetsFromEachState());
+//        System.out.println("Tweets from each state: " + tweetList1.tweetsFromEachState());
+
+        // Has anyone tweeted more than once?
+        System.out.println("Has anyone tweeted more than once: " + tweetList1.moreThanOneTweet());
+        System.out.println("Has anyone tweeted more than once: " + tweetList2.moreThanOneTweet());
+
+
     }
 
     public static void output1Node(String s, LList n) {
