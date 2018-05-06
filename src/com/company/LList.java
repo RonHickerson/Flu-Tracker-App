@@ -62,10 +62,10 @@ public class LList {
                     return null;
                 temp = temp.getNext();
             }
-                return temp.getTweet();
-    }
-            return temp;
+            return temp.getTweet();
         }
+        return temp;
+    }
 
     public int size(LList head) {
         if (head == null) {
@@ -73,21 +73,37 @@ public class LList {
         } else
             return 1 + size(head.next);
     }
-    
-//    public Map<String, Integer> tweetsFromEachState() {
-//        Map<String, Integer> counts = new HashMap<>();
-//        int count = 0;
-//        LList temp = this;
-//        while (temp != null) {
-//            if (temp.getTweet().getState().equals(counts.) ) {
-//                count++;
-//            }
-//            counts.put(temp.getTweet().getState(), count);
-//        }
-//    return counts;
-//    }
+    @Override
+    public String toString () {
+        final StringBuilder sb = new StringBuilder("");
+        LList temp = this;
+        while (temp.next != null) {
+            sb.append(temp.tweet).append("-");
+            temp = temp.next;
+        }
+        sb.append(temp.tweet);
+        return sb.toString();
+    }
 
-    public boolean moreThanOneTweet() {
+
+    public Map<String, Integer> tweetsFromEachState() {
+        Map<String, Integer> counts = new HashMap<>();
+        LList temp = this;
+        while (temp.next != null) {
+            if(counts.isEmpty())
+                counts.put(temp.tweet.getState(), 0);
+            if(!counts.containsKey(temp.tweet.getState()))
+                counts.put(temp.tweet.getState(), 1);
+            else if (counts.containsKey(temp.tweet.getState())) {
+                int count = counts.get(temp.tweet.getState());
+                counts.put(temp.tweet.getState(), count + 1);
+            }
+            temp = temp.next;
+        }
+        return counts;
+    }
+
+    public boolean moreThanOneTweet(){
         LList temp = this;
         ArrayList<Integer> ids = new ArrayList<>();
         while (temp.next != null) {
@@ -102,16 +118,18 @@ public class LList {
         return false;
     }
 
-    @Override
-    public String toString() {
-        final StringBuilder sb = new StringBuilder("");
-        LList temp = this;
-        while (temp.next != null) {
-            sb.append(temp.tweet).append("-");
-            temp = temp.next;
-        }
-        sb.append(temp.tweet);
-        return sb.toString();
-    }
+//    public int monthWithMostTweets(){
+//
+//    }
+
+    //
+//    public boolean isClusterPresent(int consecutiveNum) {
+//        LList temp = this;
+//        int count = 0;
+//        while (temp.next != null) {
+//            temp = temp.next;
+//        }
+//
+//    }
 
 }
