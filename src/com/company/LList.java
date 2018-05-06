@@ -52,6 +52,20 @@ public class LList {
         return true;
     }
 
+    public boolean remove(Tweet tweet) {
+        LList previous = null;
+        LList head = this;
+        while (head.next != null) {
+            if(this.tweet.equals(tweet)){
+                if (previous != null)
+                    previous.next = head.next;
+                return true;
+            }
+            previous = head;
+            head = head.next;
+        }
+        return false;
+    }
 
     public Object get(int index) {
         LList temp = this;
@@ -84,7 +98,10 @@ public class LList {
 
     public LList dequeue() {
         LList temp = this;
-        if(temp == null);
+        if(temp == null)
+            return;
+        if()
+
 
     }
 
