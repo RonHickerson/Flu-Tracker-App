@@ -75,6 +75,20 @@ public class LList {
         } else
             return 1 + size(head.next);
     }
+
+    public boolean contains(Tweet tweet) {
+        if (this.tweet.equals(tweet)) return true;
+        if (next == null) return false;
+        else return next.contains(tweet);
+    }
+
+    public LList dequeue() {
+        LList temp = this;
+        if(temp == null);
+
+    }
+
+
     @Override
     public String toString () {
         final StringBuilder sb = new StringBuilder("");

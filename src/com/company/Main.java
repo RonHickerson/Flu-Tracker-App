@@ -13,6 +13,8 @@ public class Main {
         output2Nodes("Tweets", tweetList1, "More Tweets", tweetList2);
 
 
+
+
         // How many flu tweets from each state in the file?
         System.out.println("Tweets from each state: " + tweetList1.tweetsFromEachState());
         System.out.println();
