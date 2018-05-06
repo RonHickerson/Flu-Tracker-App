@@ -14,22 +14,25 @@ public class Main {
 
 
         // How many flu tweets from each state in the file?
-
         System.out.println("Tweets from each state: " + tweetList1.tweetsFromEachState());
-
-
-//        System.out.println("Tweets from each state: " + tweetList1.tweetsFromEachState());
+        System.out.println();
 
         // Has anyone tweeted more than once?
         System.out.println("Has anyone tweeted more than once: " + tweetList1.moreThanOneTweet());
         System.out.println("Has anyone tweeted more than once: " + tweetList2.moreThanOneTweet());
+        System.out.println();
 
         // Which months had the most tweets?
+        System.out.println("Month with most tweets: " + tweetList1.monthWithMostTweets());
+        System.out.println();
 
         // Were there any clusters of tweets?  A cluster is when [C] or more consecutive tweets are from the same state.
+        System.out.println("Were there any consecutive tweets from the same state: " + tweetList1.isClusterPresent(4));
+        System.out.println();
 
         // Epidemic if each of any [S] states has [T] or more tweets.
 
+        System.out.println();
 
     }
 

@@ -1,5 +1,7 @@
 package com.company;
 
+import java.time.LocalDate;
+import java.time.Month;
 import java.util.*;
 
 public class LList {
@@ -118,18 +120,40 @@ public class LList {
         return false;
     }
 
-//    public int monthWithMostTweets(){
-//
-//    }
+    public Month monthWithMostTweets() {
+        Map<Month, Integer> counts = new HashMap<>();
+        LList temp = this;
+        while (temp.next != null) {
+            if (counts.isEmpty())
+                counts.put(temp.tweet.getDate().getMonth(), 0);
+            if (!counts.containsKey(temp.tweet.getDate().getMonth()))
+                counts.put(temp.tweet.getDate().getMonth(), 1);
+            else if (counts.containsKey(temp.tweet.getDate().getMonth())) {
+                int count = counts.get(temp.tweet.getDate().getMonth());
+                counts.put(temp.tweet.getDate().getMonth(), count + 1);
+            }
+            temp = temp.next;
+        }
+        int maxValueInMap = (Collections.max(counts.values()));
+        for (Map.Entry<Month, Integer> entry : counts.entrySet()) {
+            if (entry.getValue() == maxValueInMap) {
+                return entry.getKey();
 
-    //
-//    public boolean isClusterPresent(int consecutiveNum) {
-//        LList temp = this;
-//        int count = 0;
-//        while (temp.next != null) {
-//            temp = temp.next;
-//        }
-//
-//    }
+
+            }
+        }
+        return temp.getTweet().getDate().getMonth();
+    }
+
+
+    public boolean isClusterPresent(int consecutiveNum) {
+        LList temp = this;
+        while (temp.next != null) {
+            if (tweetsFromEachState().get(temp.tweet.getState()) >= consecutiveNum)
+                return true;
+            temp = temp.next;
+        }
+        return false;
+    }
 
 }
